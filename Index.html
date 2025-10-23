@@ -1,0 +1,383 @@
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  
+
+    <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
+
+    <meta name="apple-mobile-web-app-title" content="CodePen">
+
+    <link rel="icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+
+    <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111">
+
+
+
+  
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+
+
+  <title>Interactive SVG Info Graph</title>
+
+    <link rel="canonical" href="https://codepen.io/chrisgannon/pen/pbzEYr">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+
+<meta name="viewport" content="width=device-width, minimum-scale=1.0">
+  
+  
+  
+<style>
+body {
+  background-color:#115F9A;
+  overflow: hidden;
+  /* font-family: 'Alegreya Sans', sans-serif; */
+  
+}
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+svg{
+  position:absolute;
+  width:100%;
+  height:100%;
+  visibility:hidden;
+ 
+}
+
+
+.mainSVG{
+  position:absolute;
+  width:100%;
+  height:100%;
+  visibility:hidden;
+  /*  top:200px; */
+  left:50%;
+  transform:translate(-50%, 0%);
+  overflow:visible;
+}
+
+#boxLabel{
+  text-anchor:middle;
+  fill:#115F9A;
+  font-size:21px;
+  user-select:none;
+  -webkit-user-select:none;
+  pointer-events:none;
+  font-family: 'Roboto', sans-serif;
+  font-weight:700;
+}
+
+.box{
+  opacity:0;
+}
+circle{
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+</head>
+
+<body translate="no">
+  <svg class="bgGradSVG" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin slice" style="visibility: visible;">
+<linearGradient id="bgGrad" gradientUnits="userSpaceOnUse" x1="400" y1="-1.795888e-008" x2="400" y2="600">
+	<stop offset="0" style="stop-color:#22A4CA"></stop>
+	<stop offset="0.61" style="stop-color:#115F9A"></stop>
+</linearGradient>
+<rect fill="url(#bgGrad)" width="100%" height="100%"></rect>  
+</svg>
+
+
+<svg class="mainSVG" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" style="visibility: visible;">
+<defs>
+      <filter id="glow" x="-100%" y="-100%" width="350%" height="350%" color-interpolation-filters="sRGB">
+        <feGaussianBlur stdDeviation="5" result="coloredBlur"></feGaussianBlur>
+        <feOffset dx="0" dy="20" result="offsetblur"></feOffset>
+        <feFlood id="glowAlpha" flood-color="#000" flood-opacity="0.123"></feFlood>
+        <feComposite in2="offsetblur" operator="in"></feComposite>
+        <feMerge>
+          <feMergeNode></feMergeNode>          
+          <feMergeNode in="SourceGraphic"></feMergeNode>
+        </feMerge>
+      </filter>  
+</defs>
+
+<g id="graphTextGroup" opacity="0.5">
+<text transform="translate(48.33 473.71)" font-size="18" fill="#fff" font-family="Roboto" font-weight="700" style="opacity: 1;">0</text>
+    <text transform="translate(48.33 301.71)" font-size="18" fill="#fff" font-family="Roboto" style="opacity: 1;">200</text>
+    <text transform="translate(48.33 101.71)" font-size="18" fill="#fff" font-family="Roboto" style="opacity: 1;">400</text>   
+  </g>
+<g id="horizontalLinesGroup" fill="none" stroke="#FFF" stroke-miterlimit="10">
+	<line x1="780" y1="481.7" opacity="0.1" x2="30" y2="481.7" data-svg-origin="30 481.70001220703125" transform="matrix(1,0,0,1,0,0)" style="opacity: 0.1; stroke-dashoffset: 0; stroke-dasharray: none;"></line>
+	<line x1="780" y1="381.7" opacity="0.1" x2="30" y2="381.7" data-svg-origin="30 381.70001220703125" transform="matrix(1,0,0,1,0,0)" style="opacity: 0.1; stroke-dashoffset: 0; stroke-dasharray: none;"></line>
+	<line x1="780" y1="281.7" opacity="0.1" x2="30" y2="281.7" data-svg-origin="30 281.70001220703125" transform="matrix(1,0,0,1,0,0)" style="opacity: 0.1; stroke-dashoffset: 0; stroke-dasharray: none;"></line>
+	<line x1="780" y1="181.7" opacity="0.1" x2="30" y2="181.7" data-svg-origin="30 181.6999969482422" transform="matrix(1,0,0,1,0,0)" style="opacity: 0.1; stroke-dashoffset: 0; stroke-dasharray: none;"></line>
+	<line x1="780" y1="81.7" opacity="0.1" x2="30" y2="81.7" data-svg-origin="30 81.69999694824219" transform="matrix(1,0,0,1,0,0)" style="opacity: 0.1; stroke-dashoffset: 0; stroke-dasharray: none;"></line>
+     
+</g>  
+  <g id="uiGroup" filter="url(#glow)">
+<path id="graphLine" fill="none" stroke-linecap="round" stroke="#F79819" stroke-width="4" stroke-miterlimit="10" d="M94.6,405.1
+	c62.9-95,109.2-111.7,142.4-103.8c44.6,10.6,74.8,67.9,143.4,63.8c35-2.1,32.7-17.4,73.9-21.7c77.7-8.2,105.9,44,136.3,13.6
+	c30.6-30.5,10.8-91.7,44.9-127.5c29.1-30.6,56.7,0,94.1-33.9c20.6-18.6,32.6-46.2,39.6-66.5" style="stroke-dashoffset: 2e-05; stroke-dasharray: none;"></path>
+    <g id="connectorGroup">
+    <line id="connector" x1="94.6" x2="94.6" y1="405.1" y2="405.1" stroke="#FFF"></line>
+    </g>
+ <g class="box" data-svg-origin="40 40" transform="matrix(0,0,0,0,94.6,355.1)" style="transform-origin: 0px 0px 0px; opacity: 0;">
+  <rect x="0" width="80" height="40" rx="20" ry="20" fill="#FFF"></rect>
+  <text id="boxLabel" x="40" y="28">76</text>
+  </g> 
+  </g>
+    
+  <circle id="nullDot" fill="red" cx="0" cy="0" r="0" data-svg-origin="0 0" transform="matrix(1,0,0,1,0,0)" style="transform-origin: 0px 0px 0px;"></circle>
+  <circle id="graphDot" fill="#FFF" cx="0" cy="0" r="10" data-svg-origin="0 0" transform="matrix(1,0,0,1,94.6,405.1)" style="transform-origin: 0px 0px 0px;"></circle>
+  <circle id="dragger" fill="rgba(240,240,240,0.1)" cx="0" cy="0" r="15" stroke="rgba(240,240,240,0.05)" stroke-width="10" data-svg-origin="0 0" transform="matrix(1,0,0,1,94.6,405.1)" style="transform-origin: 0px 0px 0px; cursor: move; touch-action: pan-y; user-select: none;"></circle>
+  <linearGradient id="boxGrad" gradientUnits="userSpaceOnUse" x1="65.7809" y1="25.7808" x2="14.2194" y2="25.7808" gradientTransform="matrix(-5.857245e-007 -1 1 -5.872379e-007 14.2192 65.7809)">
+	<stop offset="0.3858" style="stop-color:#E4386D"></stop>
+	<stop offset="0.7513" style="stop-color:#CF2156"></stop>
+</linearGradient>
+
+</svg>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/utils/Draggable.min.js"></script>
+<script src="//s3-us-west-2.amazonaws.com/s.cdpn.io/16327/DrawSVGPlugin.js?r=12"></script>
+<script src="//s3-us-west-2.amazonaws.com/s.cdpn.io/16327/MorphSVGPlugin.min.js"></script>
+    <script id="rendered-js">
+var xmlns = "http://www.w3.org/2000/svg",
+xlinkns = "http://www.w3.org/1999/xlink",
+select = function (s) {
+  return document.querySelector(s);
+},
+selectAll = function (s) {
+  return document.querySelectorAll(ds);
+},
+mainSVG = select('.mainSVG'),
+box = select('.box'),
+connector = select('#connector'),
+connectorGroup = select('#connectorGroup'),
+dragger = select('#dragger'),
+graphDot = select('#graphDot'),
+boxLabel = select('#boxLabel'),
+nullDot = select('#nullDot'),
+graphLine = select('#graphLine'),
+graphBezier = MorphSVGPlugin.pathDataToBezier(graphLine.getAttribute('d')),
+perc,
+boxPos = {
+  x: 0,
+  y: 0 },
+
+//pt = mainSVG.createSVGPoint(),
+isPressed = false;
+
+TweenMax.set('svg', {
+  visibility: 'visible' });
+
+
+TweenMax.set([dragger, graphDot, nullDot], {
+  transformOrigin: '50% 50%' });
+
+
+TweenMax.set([box], {
+  transformOrigin: '50% 100%' });
+
+
+
+var tl = new TimelineMax({
+  onUpdate: updateGraph,
+  paused: true });
+
+tl.to([graphDot, dragger], 5, {
+  bezier: {
+    type: "cubic",
+    values: graphBezier,
+    autoRotate: false },
+
+  ease: Linear.easeNone });
+
+
+function updateTimeline() {
+
+  perc = nullDot._gsTransform.x / 770;
+  //console.log(perc)
+
+  //tl.progress(perc)  ;
+  TweenMax.to(tl, 0.5, {
+    progress: perc });
+
+
+}
+
+function updateGraph() {
+
+  boxPos.x = dragger._gsTransform.x - box.getBBox().width / 2;
+  boxPos.y = dragger._gsTransform.y - box.getBBox().height * 3;
+  TweenMax.to(box, 1, {
+    x: boxPos.x,
+    y: boxPos.y,
+    ease: Elastic.easeOut.config(0.7, 0.7) });
+
+
+  boxLabel.textContent = parseInt(600 - dragger._gsTransform.y) - 118; //.toFixed(2);
+}
+
+function graphPress() {
+  isPressed = true;
+
+  TweenMax.to(dragger, 1, {
+    attr: {
+      r: 30 },
+
+    ease: Elastic.easeOut.config(1, 0.7) });
+
+
+  TweenMax.to(connector, 0.6, {
+    attr: {
+      x1: dragger._gsTransform.x,
+      x2: dragger._gsTransform.x,
+      y1: boxPos.y,
+      y2: dragger._gsTransform.y } });
+
+
+  TweenMax.to(connector, 0.1, {
+    attr: {
+      x1: box._gsTransform.x + 40,
+      x2: boxPos.x + 40,
+      y1: box._gsTransform.y + 20,
+      y2: graphDot._gsTransform.y },
+
+    onComplete: function () {
+      //TweenMax.ticker.addEventListener('tick', connectLine);
+      TweenMax.to(box, 0.8, {
+        scale: 1,
+        alpha: 1,
+        y: boxPos.y,
+        ease: Elastic.easeOut.config(1.2, 0.7) });
+
+    } });
+
+
+}
+
+function graphRelease() {
+
+  isPressed = false;
+
+  TweenMax.to(dragger, 0.3, {
+    attr: {
+      r: 15 },
+
+    ease: Elastic.easeOut.config(0.7, 0.7) });
+
+  TweenMax.to(box, 0.2, {
+    scale: 0,
+    alpha: 0,
+    y: boxPos.y + 30,
+    ease: Back.easeOut });
+
+
+
+}
+
+updateTimeline();
+tl.progress(0.000001);
+
+
+var introTl = new TimelineMax({
+  onComplete: init,
+  delay: 1 });
+
+introTl.staggerFrom('#horizontalLinesGroup line', 1, {
+  drawSVG: '100% 100%',
+  alpha: 1,
+  //scaleX:-1,
+  transformOrigin: '0% 100%' },
+0.1).
+staggerFrom('#graphTextGroup text', 1, {
+
+  alpha: 0 },
+0.1, '-=0.5').
+
+from([graphDot, dragger], 0.71, {
+  attr: {
+    r: 0 },
+
+  ease: Power1.easeOut },
+'-=1.3').
+from(graphLine, 2.3, {
+  drawSVG: '0% 0%',
+  ease: Power3.easeInOut },
+'-=1.73');
+
+/* // Get point in global SVG space
+function cursorPoint(e) {
+  pt.x = e.clientX;
+  pt.y = e.clientY;
+  return pt.matrixTransform(mainSVG.getScreenCTM().inverse());
+}
+ */
+function connectLine() {
+
+  if (isPressed) {
+    TweenMax.set(connector, {
+      attr: {
+        x1: box._gsTransform.x + 40,
+        x2: boxPos.x + 40,
+        y1: box._gsTransform.y + 43,
+        y2: graphDot._gsTransform.y } });
+
+
+  } else {
+
+    TweenMax.to(connector, 0.1, {
+      attr: {
+        x1: graphDot._gsTransform.x,
+        x2: graphDot._gsTransform.x,
+        y1: graphDot._gsTransform.y,
+        y2: graphDot._gsTransform.y } });
+
+
+  }
+}
+
+function init() {
+
+  Draggable.create(nullDot, {
+    type: 'x',
+    trigger: dragger,
+    onPress: graphPress,
+    bounds: {
+      minX: 0,
+      maxX: 770 },
+
+    zIndexBoost: false,
+    onDrag: updateTimeline,
+    onRelease: graphRelease,
+    onThrowUpdate: updateTimeline });
+
+  TweenMax.ticker.addEventListener('tick', connectLine);
+  graphRelease();
+}
+
+/* var isDevice = (/android|webos|iphone|ipad|ipod|blackberry/i.test(navigator.userAgent.toLowerCase()));
+if (isDevice) {
+  //select('#uiGroup').setAttribute('filter', '')
+} */
+/* TweenMax.globalTimeScale(0.5) */
+//# sourceURL=pen.js
+  </script>
+
+  
+
+
+
+</body></html>
