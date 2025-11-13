@@ -6,20 +6,44 @@
 </head>
 <body>
 
+<section class="profil">
+  <p id="an-nasterii" onmouseover="afiseazaVarsta()" onmouseout="ascundeVarsta()">
+    An naștere: <span id="an">2006</span>
+  </p>
+  <p id="varsta" style="display:none;">
+    Vârstă: <span id="ani"></span> ani
+  </p>
+
+   <label for="email">Email:</label>
+  <input type="email" id="email" name="email" placeholder="introdu adresa de email" />
+  <button onclick="valideazaEmail()">Verifică email</button>
+  <p id="mesaj-email"></p>
+</section>
+
   <header>
     <h1 id="titlu-catalog">Coperta</h1>
   </header>
 
   <section class="coperta">
-    <img src="C:\Users\AlexCiprianIacobGalp\Desktop\2111\images\ninja.png" alt="Imagine coperta">
+    <img src="images\ninja.png" alt="C:\Users\AlexCiprianIacobGalp\Desktop\ETTI-IA-main\images\mercedes-cls-mercedes-benz-cls-63-amg-s-performance-carbon-package-biturbo-schwarz_8961204899.jpg">
   </section>
 
   <nav>
     <ul>
-      <li><a href="C:\Users\AlexCiprianIacobGalp\Desktop\2111\indexeu.html">Profil: Galpaian Alex</a></li>
-      <li><a href="C:\Users\AlexCiprianIacobGalp\Desktop\2111\index tolas.html">Profil: Tolas Darius</a></li>
+      <li><a href="C:\Users\AlexCiprianIacobGalp\Desktop\ETTI-IA-main\indexeu.html">Profil: Galpaian Alex</a></li>
+      <li><a href="C:\Users\AlexCiprianIacobGalp\Desktop\ETTI-IA-main\index tolas.html">Profil: Tolas Darius</a></li>
     </ul>
+	
+<nav>
+  <ul>
+ 
+<div class="buton-centru">
+  <button id="altaViataBtn">Alta viață</button>
+</div>
+
   </nav>
+  
+<script src="script.js"></script>
 
 </body>
 </html>
