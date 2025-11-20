@@ -1,0 +1,103 @@
+body {
+  font-family: , Arial, sans-serif;
+  background-color: #f0f4f8;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+header, footer {
+  background-color: #003366;
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
+
+
+#titlu-catalog {
+  font-size: 45;
+  letter-spacing: 2px;
+  color: #ffcc00;
+}
+
+
+.coperta {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.coperta img {
+  width: 30%;
+  border-radius: 20px;
+  opacity: 0.9;
+
+}
+nav ul {
+  list-style-type: none;
+  text-align: center;
+
+}
+
+nav li {
+  display: inline-block;
+  margin: 10px 15px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #003366;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #ff6600;
+}
+
+
+.profil {
+  width: 50%;
+  margin: 30px auto;
+  background-color: #ffffff;
+  border: 2px solid #003366;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.imagine-profil {
+  display: block;
+  margin: 0 auto;
+  width: 150px;
+  border-radius: 50%;
+  border: 3px solid #003366;
+}
+
+.buton-centru {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px; 
+}
+
+
+#altaViataBtn {
+  background: linear-gradient(135deg, #ff4b2b, #ff416c);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 15px 45px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+#altaViataBtn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 25px rgba(255, 65, 108, 0.6);
+}
+
+
+#altaViataBtn:active {
+  transform: scale(0.95);
+}
