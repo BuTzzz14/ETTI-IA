@@ -1,56 +1,50 @@
-<html>
-	<head>
-		<title>Galpaian Alex</title>
-	</head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coperta</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-	<body>
-		<a href="C:\Users\AlexCiprianIacobGalp\Desktop\Lab5\cuprins.html""> Cuprins </a>
-		<h1>Nume: Galpaian</h1>
-		<h2>Prenume: Alex</h2>
-		<h3>Email: Galpaian.Ia.Alex@student.utcluj.ro</h3>
-		<h4>Poza:</h4>
-		<img src="C:\Users\AlexCiprianIacobGalp\Desktop\Lab5\images\LeoMessi20092010_pic_fcb-arsenal62.jpg" width="250" height="250">
-		<h5> Asteptari legate de educatie: </5>
-		<p> Doamne ajuta sa terminam facultate </p>
-		<p> Discipline:<a href="https://etti.utcluj.ro/fise-discipline/articles/ea-ro.html">https://etti.utcluj.ro/fise-discipline/articles/ea-ro.html</a>  </p>
-		<table outline-color="black">
-		<tr>
-			<th>Disciplina</th>
-			<th>An</th>
-			<th>Link</th>
-		</tr>
-		<tr>
-		<td>Informatica aplicata</td>
-		<td>1</td>
-		<td><a href="https://etti.utcluj.ro/files/Acasa/Site/FiseDisciplina/EaRo/06.pdf"> Link1 </a> </td> 
-		</tr>
-		<tr>
-		<td>Analiza matematica</td>
-		<td>1</td>
-		<td><a href="https://etti.utcluj.ro/files/Acasa/Site/FiseDisciplina/EaRo/01.pdf"> Link2 </a> </td> 
-		</tr>
-		<tr>
-		<td>Bazele Optoelectronicii</td>
-		<td>2</td>
-		<td><a href="https://etti.utcluj.ro/files/Acasa/Site/FiseDisciplina/EaRo/16.pdf"> Link3 </a> </td> 
-		</tr>
-		<tr>
-		<td>Optoelectronica</td>
-		<td>3</td>
-		<td><a href="https://etti.utcluj.ro/files/Acasa/Site/FiseDisciplina/EaRo/32.pdf"> Link4 </a> </td> 
-		</tr>
-		<tr>
-		<td>Televiziune</td>
-		<td>4</td>
-		<td><a href="https://etti.utcluj.ro/files/Acasa/Site/FiseDisciplina/EaRo/45.pdf"> Link5 </a> </td> 
-		</table>
-		<h3>  Hobby-uri:</h3>
-		<p> - Fotbal</p>
-		<p> - Jocuri video</p>
-		<p> - Handball</p>
-		
-		
-		
-					
-	</body>
+<section class="profil">
+  <p id="an-nasterii" onmouseover="afiseazaVarsta()" onmouseout="ascundeVarsta()">
+    An naștere: <span id="an">2006</span>
+  </p>
+  <p id="varsta" style="display:none;">
+    Vârstă: <span id="ani"></span> ani
+  </p>
+
+   <label for="email">Email:</label>
+  <input type="email" id="email" name="email" placeholder="introdu adresa de email" />
+  <button onclick="valideazaEmail()">Verifică email</button>
+  <p id="mesaj-email"></p>
+</section>
+
+  <header>
+    <h1 id="titlu-catalog">Coperta</h1>
+  </header>
+
+  <section class="coperta">
+    <img src="images/ninja.png" alt="images/mercedes-cls-mercedes-benz-cls-63-amg-s-performance-carbon-package-biturbo-schwarz_8961204899.jpg">
+	<img src="images/1-ronaldinho-feat-0118-2560x1440-c-default.png"
+  </section>
+
+  <nav>
+    <ul>
+      <li><a href="indexeu.html">Profil: Galpaian Alex</a></li>
+      <li><a href="index tolas.html">Profil: Tolas Darius</a></li>
+    </ul>
+	
+<nav>
+  <ul>
+ 
+<div class="buton-centru">
+  <button id="altaViataBtn">Alta viață</button>
+</div>
+
+  </nav>
+  
+<script src="script.js"></script>
+
+</body>
 </html>
